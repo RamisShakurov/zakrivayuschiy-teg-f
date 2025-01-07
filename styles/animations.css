@@ -1,11 +1,70 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+@keyframes scaling {
+  from {
+	transform: scale(1);
+  }
+  to {
+	transform: scale(1.25);
+  }
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+.like-icon.is-liked .sparks {
+  animation: sparking 0.3s 0.3s 1 ease-in;
+}
 
-*/
+@keyframes sparking {
+  from {
+	opacity: 0;
+  }
+  to {
+	opacity: 1;
+  }
+}
+
+.main-body {
+  fill: none;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  fill: var(--heart-contour);
+  transition: fill 0.3s 0.03s;
+}
+
+.card__icon-button:hover .contour {
+  fill: #000;
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:hover .contour {
+  fill: #000;
+}
+
+.card__icon-button:active .main-body {
+  fill: red;
+}
+
+.card__icon-button:active .contour {
+  fill: red;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: red;
+}
+
+.like-icon.is-liked .contour {
+  fill: red;
+}
+
+.like-icon.is-liked .core {
+  fill: red;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center center;
+  animation: scaling 0.3s 0.1s 1 ease-in;
+}
