@@ -4,13 +4,385 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
 .page {
+  position: relative;
   min-inline-size: 320px;
+  max-inline-size: 700px;
+  inline-size: 100vw;
   min-block-size: 100dvb;
+  margin: 0 auto;
+  background-image: var(--background-gradient);
+  background-attachment: fixed;
+  background-size: cover;
 }
+
+.content {
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 18.28% 17.14%;
+  border: 2px solid #000;
+  margin-top: 109px;
+  margin-bottom: 102px;
+}
+
+.header__logo {
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
+  font-family: var(--accent-font-family), sans-serif;
+  font-weight: var(--font-weight-bold);
+  padding-bottom: 20px;
+}
+
+.header__title {
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+  font-family: var(--accent-font-family), sans-serif;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+}
+
+.card {
+  border: 2px solid #000;
+  margin-bottom: 50px;
+}
+
+.card__title {
+  font-variation-settings: 'wght' var(--font-weight-bold);
+  padding: 4px 10px;
+}
+
+.card__wrap {
+  position: relative;
+}
+
+.card__label {
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  text-shadow: 0 0 1px #fff;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+  .card__label {
+	-webkit-text-stroke: 1px #fff;
+	text-shadow: none;
+  }
+}
+
+.card__article {
+  font-size: 18px;
+  padding: 26px 25px 27px 25px;
+  line-height: 1.17;
+}
+
+.card__text:not(:last-child) {
+  padding-bottom: 27px;
+}
+
+.card__button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 27px;
+  padding-bottom: 23px
+}
+
+.card__image {
+  position: relative;
+  width: 100%;
+  min-inline-size: 320px;
+  max-inline-size: 700px;
+}
+
+.button {
+  background: transparent;
+  outline: 2px solid #000;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: 14px;
+  border: none;
+}
+
+.card__icon-button {
+  border: none;
+  outline: none;
+  margin-right: 3px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+  border: none;
+}
+.card__icon-button:focus-visible {
+  border: none;
+  outline: 2px solid #000;
+  outline-offset: -2px;
+
+}
+
+.card__like-button {
+  position: relative;
+  display: inline-block;
+  width: 126px;
+  padding: 0;
+  height: 34px;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 2px currentColor;
+}
+
+.card__like-button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: scaleX(0);
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+  transform-origin: left ;
+  inset: 0 0;
+}
+
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.footer {
+  max-inline-size: 337px;
+  margin: 52px auto 105px;
+}
+
+.footer__button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 18.5px 21px 18.5px 19px;
+  height: 51px;
+  line-height: 90%;
+}
+
+.footer__button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: scaleX(0);
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+  transform-origin: left ;
+  inset: 0 0;
+}
+
+.footer__button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #fff;
+
+}
+
+.footer__text {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.footer__button:focus-visible {
+  box-shadow: 2px 2px 0 2px currentColor;
+}
+
+.footer__floppy {
+  flex: 0 0 auto;
+  display: block;
+  width: 21px;
+  height: 21px;
+  margin-right: 8px;
+  stroke: #fff;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 1;
+}
+
+.sprint_number-4 {
+  position: relative;
+}
+
+.dialog {
+  display: grid;
+  position: fixed;
+  inset:0 0;
+  z-index: 1;
+  font-family: var(--accent-font-family), sans-serif;
+  padding: 30px;
+  width: 359px;
+  height: 192px;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog__wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__text {
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog__floppy {
+  flex: 0 0 auto;
+  display: inline-block;
+}
+
+.dialog__button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 293px;
+  height: 36px;
+}
+
+@media (width <= 375px) {
+  .header {
+	margin-top: 100px;
+	padding: 120px 14px;
+  }
+
+  .card__label {
+	right: 13px;
+  }
+
+  .footer__button {
+	flex-direction: column;
+	gap: 5px;
+	width: 306px;
+	height: 80px;
+  }
+
+  .footer__floppy {
+	width: 28px;
+	height: 28px;
+  }
+
+  .dialog {
+	width: 341px;
+  }
+
+  .dialog__button {
+	width: 257px;
+  }
+}
+
+.main-body {
+  fill: none;
+}
+
+.sparks {
+  fill: none;
+}
+
+.contour {
+  fill: var(--heart-contour);
+  transition: fill 0.3s 0.03s;
+}
+
+
+.card__icon-button:hover .contour {
+  fill: #000;
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:hover .contour {
+  fill: #000;
+}
+
+.card__icon-button:active .main-body {
+  fill: red;
+
+}
+
+.card__icon-button:active .contour {
+  fill: red;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: red;
+}
+
+.like-icon.is-liked .contour {
+  fill: red;
+
+}
+
+
+.like-icon.is-liked .core {
+  fill: red;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .heart{
+  animation: scaling 0.3s 0.1s 1 ease-in;
+  transform-origin: center center;
+}
+
+@keyframes scaling {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparking 0.3s 0.3s 1 ease-in;
+}
+
+@keyframes sparking {
+  from {
+      fill: none;
+    }
+
+  to {
+      fill: red;
+  }
+}
+
+
+
+
+
+
+
+
+
