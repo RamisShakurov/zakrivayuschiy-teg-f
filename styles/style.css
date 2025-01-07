@@ -306,7 +306,7 @@ dialog::backdrop {
 }
 
 .sparks {
-  fill: none;
+  opacity: 1;
 }
 
 .contour {
@@ -343,7 +343,6 @@ dialog::backdrop {
 
 }
 
-
 .like-icon.is-liked .core {
   fill: red;
   transition-delay: 0.06s;
@@ -370,11 +369,11 @@ dialog::backdrop {
 
 @keyframes sparking {
   from {
-      fill: none;
+      opacity: 0;
     }
 
   to {
-      fill: red;
+      opacity: 1;
   }
 }
 
