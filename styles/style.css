@@ -271,12 +271,13 @@ dialog::backdrop {
   .card__label {
 	right: 13px;
   }
-
+  .footer {
+    max-width: 306px ;
+  }
   .footer__button {
 	flex-direction: column;
 	gap: 5px;
-	width: 306px;
-	height: 80px;
+	min-height: 80px;
   }
 
   .footer__floppy {
