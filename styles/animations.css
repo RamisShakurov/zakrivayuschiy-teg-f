@@ -38,8 +38,9 @@
   transition-delay: 0.05s;
 }
 
-.card__icon-button:hover .contour {
+.card__icon-button:hover .main-body {
   fill: #000;
+  transition-delay: 0.05s;
 }
 
 .card__icon-button:active .main-body {

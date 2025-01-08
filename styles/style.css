@@ -294,12 +294,36 @@ dialog::backdrop {
   }
 }
 
-.card-image-sprint-0 {
+.card-image-back_flip{
   filter: saturate(115%);
 }
 
+.card__image-pool-of-money {
+  filter: contrast(130%);
+}
 
+.card__image-monkey {
+  filter: brightness(80%);
+}
+.card__image-cat {
+  filter: grayscale(50%);
+}
 
+.card__image-green-code {
+  filter: blur(2px);
+}
+
+.card__image-dog {
+  filter: hue-rotate(150deg);
+}
+
+.card__image-coffee {
+  filter: invert(10%);
+}
+
+.card__image-laptop {
+  filter: opacity(90%) brightness(90%);
+}
 
 
 
