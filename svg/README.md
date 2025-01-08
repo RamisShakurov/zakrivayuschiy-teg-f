@@ -1,3 +1,1 @@
-https://github.com/RamisShakurov/zakrivayuschiy-teg-f
-
-https://ramisshakurov.github.io/zakrivayuschiy-teg-f/
+В этой папке будут храниться все необходимые SVG-файлы для сайта.
