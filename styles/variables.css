@@ -7,17 +7,19 @@
   --font-size-m: 18px;
   --font-size-s: 14px;
 
-  --breakpoint-simulation: calc(100vw - 375px);
-  --background-gradient: repeating-linear-gradient(to right, #d3d3d3, rgba(211 211 211 / .0) 2px),
-  repeating-linear-gradient(to bottom,  #d3d3d3, rgba(211 211 211 / .0)  2px),
+  --background-gradient: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgba(211 211 211 / .0) 2px 4px),
+  repeating-linear-gradient(to bottom,  #d3d3d3 0 2px, rgba(211 211 211 / .0)  2px 4px),
   repeating-linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  --background-color-page: #D3d3d3;
   --background-color: #fff;
+  --buckground-color-button: #fff;
 
   --border: 2px solid #000;
   --text-shadow: 0 0 1px #fff;
-  --text-shadow-decor: 0 0 5px #1a1a1a, 0 0 15px #6e1bff, 0 0 30px #141202;
   --box-shadow: 2px 2px 0 2px currentColor;
-  --color-stroke: #fff;
+  --color-fill: #fff;
 
-  --heart-contour: #fff;
+  --heart-contour: #000;
+  --heart-fill: #ff0000;
+  --heart-hover-fill: #000;
 }

@@ -20,49 +20,69 @@
   }
 }
 
+.contour {
+  fill: var(--heart-contour);
+  transition: 0.1s linear 0s;
+}
+
 .main-body {
+  fill: #fff;
+  opacity: 0;
+  transition:  0.3s 0.05s;
+
+}
+
+.core {
+  opacity: 0;
   fill: none;
+  transition:  0.3s 0.03s;
+
 }
 
 .sparks {
   opacity: 0;
+  fill: var(--heart-fill)
 }
 
-.contour {
-  fill: var(--heart-contour);
-  transition: fill 0.3s 0.03s;
+.card__icon-button:hover .core {
+  fill: var(--heart-hover-fill);
+  opacity: 1;
+  transition: opacity 0.3s 0s;
 }
-
-.card__icon-button:hover .contour {
-  fill: #000;
-  transition-delay: 0.05s;
-}
-
 .card__icon-button:hover .main-body {
-  fill: #000;
-  transition-delay: 0.05s;
+  opacity: 1;
+  fill: var(--heart-hover-fill);
+  transition: opacity 0.3s 0.05s;
+}
+
+.card__icon-button:active .core {
+  fill: var(--heart-fill);
+  opacity: 1;
+  transition: opacity 0.3s 0s;
 }
 
 .card__icon-button:active .main-body {
-  fill: red;
-}
-
-.card__icon-button:active .contour {
-  fill: red;
-  transition-delay: 0.05s;
-}
-
-.like-icon.is-liked .main-body {
-  fill: red;
-}
-
-.like-icon.is-liked .contour {
-  fill: red;
+  fill: var(--heart-fill);
+  opacity: 1;
+  transition: opacity 0.3s 0.05s;
 }
 
 .like-icon.is-liked .core {
-  fill: red;
-  transition-delay: 0.06s;
+  fill: var(--heart-fill);
+  opacity: 1;
+  transition: opacity 0.3s 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill);
+  opacity: 1;
+  transition: opacity 0.3s 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill);
+  opacity: 1;
+  transition:  0.3s 0.06s;
 }
 
 .like-icon.is-liked .heart {

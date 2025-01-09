@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  font-family: var(--main-font-family), sans-serif;
+  font-family: var(--main-font-family), fantasy;
   font-variation-settings: 'wght' var(--font-weight-regular);
   font-size: 18px;
 }
@@ -23,7 +23,9 @@ h6,
 p,
 ul,
 ol,
-li {
+li,
+figure,
+figcaption {
   margin: 0;
   padding: 0;
   font-size: inherit;

@@ -1,13 +1,12 @@
-
 .page {
   position: relative;
   margin: 0 auto;
+  background-color: var(--background-color-page);
   background-image: var(--background-gradient);
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 320px;
   max-inline-size: 700px;
-  inline-size: 100vw;
   min-block-size: 100dvb;
 }
 
@@ -20,8 +19,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 109px;
-  margin-bottom: 102px;
+  margin-block-start: 109px;
+  margin-block-end: 102px;
   border: var(--border);
   padding: 18.28% 17.14%;
 }
@@ -50,11 +49,11 @@
   font-variation-settings: 'wght' var(--font-weight-bold);
 }
 
-.card__wrap {
+.card__figure {
   position: relative;
 }
 
-.card__label {
+.figure__label {
   position: absolute;
   top: 25px;
   right: 25px;
@@ -66,17 +65,16 @@
 }
 
 @supports (-webkit-text-stroke: 1px #fff) {
-  .card__label {
+  .figure__label {
 	-webkit-text-stroke: 1px #fff;
 	text-shadow: none;
   }
 }
 
-.card__article {
-  padding: 26px 25px 27px 25px;
+.card__group-text {
+  padding: 22px 25px 25px 25px;
   font-size: var(--font-size-m);
   line-height: 1.17;
-  text-shadow: var(--text-shadow-decor);
 }
 
 .card__text:not(:last-child) {
@@ -87,99 +85,51 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-right: 27px;
-  padding-bottom: 23px
+  gap: 4px;
+  padding-right: 25px;
+  padding-bottom: 25px
 }
 
-.card__image {
+.figure__image {
   position: relative;
   width: 100%;
+  border-block-start: var(--border);
+  border-block-end: var(--border);
+  aspect-ratio: 1 / 1;
   min-inline-size: 320px;
   max-inline-size: 700px;
 }
 
+/*вынести в общий класс анимации фокус для card-like, сохранить на память и ок */
 .button {
+  position: relative;
   border: none;
   outline: var(--border);
   font-family: var(--accent-font-family), sans-serif;
   font-size: var(--font-size-s);
-  background: transparent;
+  background: var(--buckground-color-button);
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.card__icon-button {
-  margin-right: 3px;
-  border: none;
-  outline: none;
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
-.card__icon-button:focus {
-  border: none;
-  outline: none;
+.button:hover::after {
+  transform: scaleX(1);
 }
 
-.card__icon-button:focus-visible {
-  border: none;
-  outline: var(--border);
-  outline-offset: -2px;
-}
-
-.card__like-button {
-  position: relative;
-  display: inline-block;
-  width: 126px;
-  height: 34px;
-  padding: 0;
-}
-
-.card__like-button:focus-visible {
+.button:focus-visible {
   box-shadow: var(--box-shadow);
-}
-
-.card__like-button::after {
-  content: '';
-  position: absolute;
-  inset: 0 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transition: 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.card__like-button:hover::after {
-  transform: scaleX(1);
-}
-
-.footer {
-  margin: 52px auto 105px;
-  max-inline-size: 337px;
-}
-
-.footer__button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 51px;
-  padding: 18.5px 21px 18.5px 19px;
-  line-height: 90%;
-}
-
-.footer__button::after {
-  content: '';
-  position: absolute;
-  inset: 0 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transition: 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.footer__button:hover::after {
-  transform: scaleX(1);
 }
 
 .button__text {
@@ -189,44 +139,70 @@
   mix-blend-mode: difference;
 }
 
-.footer__text {
+.card__like-button {
   position: relative;
-  z-index: 1;
-  color: #fff;
-  mix-blend-mode: difference;
+  display: inline-block;
+  width: 128px;
+  padding: 11px 0;
 }
 
-.footer__button:focus-visible {
-  box-shadow: var(--box-shadow);
+.card__icon-button::after {
+  display: none;
 }
 
-.footer__floppy {
+.card__icon-button {
+  border: none;
+  outline: none;
+  transition: outline 0.03s ease
+}
+
+.card__icon-button:focus {
+  border: none;
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: none;
+  box-shadow: none;
+  outline: var(--border);
+  outline-offset: -1px;
+}
+
+.dialog__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 103px;
+  padding: 15.5px 21px 14.5px 19px;
+  line-height: 90%;
+}
+
+.button__floppy {
   position: relative;
   z-index: 1;
   display: block;
   flex: 0 0 auto;
   width: 21px;
   height: 21px;
-  margin-right: 8px;
-  stroke: var(--color-stroke);
+  fill: var(--color-fill);
   mix-blend-mode: difference;
-}
-
-.sprint_number-4 {
-  position: relative;
 }
 
 .dialog {
   position: fixed;
   inset: 0 0;
   z-index: 1;
-  display: grid;
   width: 359px;
-  height: 192px;
   padding: 30px;
   overflow: hidden;
   font-family: var(--accent-font-family), sans-serif;
-  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .dialog:not([open]) {
@@ -250,16 +226,14 @@ dialog::backdrop {
   text-transform: uppercase;
 }
 
+.button--dialog {
+  padding-block: 10px;
+  text-transform: uppercase;
+}
+
 .dialog__floppy {
   display: inline-block;
   flex: 0 0 auto;
-}
-
-.dialog__button {
-  width: 293px;
-  height: 36px;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 @media (width <= 375px) {
@@ -268,55 +242,47 @@ dialog::backdrop {
 	padding: 120px 14px;
   }
 
-  .card__label {
+  .figure__label {
 	right: 13px;
   }
 
-  .footer {
-	max-width: 306px;
-  }
-
-  .footer__button {
+  .dialog__button {
 	flex-direction: column;
 	gap: 5px;
-	height: 80px;
   }
 
-  .footer__floppy {
+  .button__floppy {
 	width: 28px;
 	height: 28px;
   }
 
   .dialog {
 	width: 341px;
-  }
-
-  .dialog__button {
-	width: 257px;
+	padding-inline: 39px
   }
 }
 
-.card-image-back_flip {
+.card__image--saturate {
   filter: saturate(115%);
 }
 
-.card__image-pool-of-money {
+.card__image--contrast {
   filter: contrast(130%);
 }
 
-.card__image-monkey {
+.card__image--brightness {
   filter: brightness(80%);
 }
 
-.card__image-cat {
+.card__image--grayscale {
   filter: grayscale(50%);
 }
 
-.card__image-green-code {
+.card__image--blur {
   filter: blur(2px);
 }
 
-.card__image-dog {
+.card__image--hue-rotate {
   filter: hue-rotate(150deg);
 }
 
@@ -324,7 +290,7 @@ dialog::backdrop {
   filter: invert(10%);
 }
 
-.card__image-laptop {
+.card__image--opacity-brightness {
   filter: opacity(90%) brightness(90%);
 }
 
