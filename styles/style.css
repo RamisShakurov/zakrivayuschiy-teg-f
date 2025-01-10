@@ -197,7 +197,7 @@
   padding: 30px;
   overflow: hidden;
   font-family: var(--accent-font-family), sans-serif;
-}
+  }
 
 .dialog[open] {
   display: flex;
@@ -256,9 +256,10 @@ dialog::backdrop {
 	height: 28px;
   }
 
+  /*Расчет отступов в зависимости от ширины окна просмотра с у четом размера элемента*/
   .dialog {
 	width: 341px;
-	padding-inline: 39px
+	padding-inline: clamp(14px, 100vw - 341px, 39px);
   }
 }
 

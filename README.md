@@ -1,3 +1,4 @@
+# Проектная работа - 4
 Ссылка на репозиторий: https://github.com/RamisShakurov/zakrivayuschiy-teg-f
 Ссылка на githubPage https://ramisshakurov.github.io/zakrivayuschiy-teg-f/
 
@@ -39,3 +40,7 @@
 1. в floppy.svg fill="black" заменен на currentColor, что позволяет гибко управлять заливкой через css
 ## Общий комментарий
 1. Для изображений добавлен aspect-ration 1/1 Теперь картинки пропорциональны при любых разрешениях
+
+# Исправление № 2
+## style.css
+1. Для диалогового окна добавлена функция расчета отступов clamp. Теперь текст умещается в 3 строки до ширины просмотра до 320px 
